@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import '../TicTacToe.css';
 
+
 export default function TicTacToe() {
 const [turn, setTurn] = useState ('X');
 const [cells, setCells] = useState(Array(9).fill('')); 
 const [winner, setWinner] = useState ();
 
-const checkForWinner = (squares) => {
+function checkForWinner(squares) {
+  
     let combos = {
         across: [
             [0, 1, 2],
@@ -23,6 +25,7 @@ const checkForWinner = (squares) => {
             [2, 4, 6],
         ],
     };
+    
 
     for (let combo in combos) {
         combos[combo].forEach((pattern) => {
@@ -80,7 +83,9 @@ const Cell = ({ num }) => {
   return (
     <div className="container">
         <table>
-            Turn: {turn}
+            <p className="Turn">
+            Playing : {turn}
+            </p>
             <tbody>
                 <tr>
                     <Cell num={0}/>
